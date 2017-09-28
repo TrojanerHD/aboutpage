@@ -12,3 +12,8 @@ span {
     background-color: white;
     display: inline;
 }
+canvas {
+    background-color: white;
+    width:auto !important;
+    height:600px !important;
+}
