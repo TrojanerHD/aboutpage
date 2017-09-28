@@ -18,16 +18,19 @@
 <span>
     ist, kommt jetzt ein Diagramm.
 </span>
-<form>
-    <fieldset>
-        <input type="radio" id="ld" name="chartChange" value="diagrammChange" onclick="showLineChart()">
-        <label for="ld"> Liniendiagramm</label>
-        <br>
-        <input type="radio" id="bd" name="chartChange" value="diagrammChange" onclick="showBarChart()">
-        <label for="bd"> Bardiagramm</label>
-    </fieldset>
-</form>
-<canvas id="line" style="border: solid"></canvas>
+<button type="button" onclick="hideChart();">Ein-/Ausklappen</button>
+<div id="hideChart" style="display: block">
+    <form>
+        <fieldset>
+            <input type="radio" id="ld" name="chartChange" value="diagrammChange" onclick="showLineChart()">
+            <label for="ld"> Liniendiagramm</label>
+            <br>
+            <input type="radio" id="bd" name="chartChange" value="diagrammChange" onclick="showBarChart()">
+            <label for="bd"> Säulendiagramm</label>
+        </fieldset>
+    </form>
+    <canvas id="line" style="border: solid"></canvas>
+</div>
 </body>
 <script type="text/javascript" src="diagramm.js"></script>
 </html>

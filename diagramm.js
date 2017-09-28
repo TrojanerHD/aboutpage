@@ -41,13 +41,20 @@ function newChart() {
 
     });
 }
+var error = 'Das Diagramm ist bereits ein';
 function showLineChart(){
-    clearChart.destroy();
-    type = 'line';
-    newChart();
+    if(type !== 'line') {
+        clearChart.destroy();
+        type = 'line';
+        newChart();
+    } else
+        alert(error + ' Liniendiagramm!')
 }
 function showBarChart(){
-    clearChart.destroy();
-    type = 'bar';
-    newChart();
+    if(type !== 'bar') {
+        clearChart.destroy();
+        type = 'bar';
+        newChart();
+    } else
+        alert(error + ' Säulendiagramm!')
 }
