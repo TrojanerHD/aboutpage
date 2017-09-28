@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(73, 73, 73);
+    color: #ffffff;
+}
+h1, h6 {
+    background-color: white;
+    color: black;
+    display: inline;
+}
+span {
+    color: black;
+    background-color: white;
+    display: inline;
+}
