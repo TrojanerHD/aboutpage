@@ -3,17 +3,21 @@ body {
     color: #ffffff;
 }
 h1, h6 {
-    background-color: white;
-    color: black;
+    color: #b3b3b3;
     display: inline;
 }
 span {
-    color: black;
-    background-color: white;
+    color: #b3b3b3;
     display: inline;
 }
 canvas {
     background-color: white;
     width:auto !important;
     height:600px !important;
+}
+table,
+td,
+th {
+    color: #b3b3b3;
+    border: 1px solid #b3b3b3;
 }

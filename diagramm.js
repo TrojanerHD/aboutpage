@@ -2,6 +2,7 @@ var ctx = document.getElementById("line").getContext("2d");
 var type = 'line';
 var clearChart;
 newChart();
+
 function newChart() {
     clearChart = new Chart(ctx, {
         type: type,
@@ -41,17 +42,20 @@ function newChart() {
 
     });
 }
+
 var error = 'Das Diagramm ist bereits ein';
-function showLineChart(){
-    if(type !== 'line') {
+
+function showLineChart() {
+    if (type !== 'line') {
         clearChart.destroy();
         type = 'line';
         newChart();
     } else
         alert(error + ' Liniendiagramm!')
 }
-function showBarChart(){
-    if(type !== 'bar') {
+
+function showBarChart() {
+    if (type !== 'bar') {
         clearChart.destroy();
         type = 'bar';
         newChart();
