@@ -2,7 +2,19 @@ var ctx = document.getElementById("line").getContext("2d");
 var type = 'line';
 var clearChart;
 var page;
-var cookieCheck;
+var checkLand;
+var checkJan;
+var checkFeb;
+var checkMar;
+var checkApr;
+var checkMai;
+var checkJun;
+var checkJul;
+var checkAug;
+var checkSep;
+var checkOkt;
+var checkNov;
+var checkDez;
 var dataset = [
     {
         label: 'Deutschland',
@@ -24,11 +36,23 @@ var dataset = [
 newChart();
 
 function newChart() {
-    cookieCheck = getCookie('Land');
-    if (cookieCheck !== "") {
+    checkLand = getCookie('Land');
+    checkJan = getCookie('Januar');
+    checkFeb = getCookie('Februar');
+    checkMar = getCookie('Maerz');
+    checkApr = getCookie('April');
+    checkMai = getCookie('Mai');
+    checkJun = getCookie('Juni');
+    checkJul = getCookie('Juli');
+    checkAug = getCookie('August');
+    checkSep = getCookie('September');
+    checkOkt = getCookie('Oktober');
+    checkNov = getCookie('November');
+    checkDez = getCookie('Dezember');
+    if (checkLand !== "") {
         dataset.push({
-            label: cookieCheck,
-            data: [2.1, 3.5, 7.4, 11.7, 11, 16, 18, 10, 19, 9, 8.5, 12],
+            label: checkLand,
+            data: [parseInt(checkJan), parseInt(checkFeb), parseInt(checkMar), parseInt(checkApr), parseInt(checkMai), parseInt(checkJun), parseInt(checkJul), parseInt(checkAug), parseInt(checkSep), parseInt(checkOkt), parseInt(checkNov), parseInt(checkDez)],
             borderColor: 'Black',
             backgroundColor: 'rgba(0, 0, 0, 0.4)'
         });
@@ -84,7 +108,31 @@ function addLand() {
         '<script>' +
         'function generateLand() {' +
         'document.cookie = \'Land=\';' +
+        'document.cookie = \'Januar=\';' +
+        'document.cookie = \'Februar=\';' +
+        'document.cookie = \'Maerz=\';' +
+        'document.cookie = \'April=\';' +
+        'document.cookie = \'Mai=\';' +
+        'document.cookie = \'Juni=\';' +
+        'document.cookie = \'Juli=\';' +
+        'document.cookie = \'August=\';' +
+        'document.cookie = \'September=\';' +
+        'document.cookie = \'Oktober=\';' +
+        'document.cookie = \'November=\';' +
+        'document.cookie = \'Dezember=\';' +
         'document.cookie = \'Land=\' + document.getElementById(\'land\').value;' +
+        'document.cookie = \'Januar=\' + document.getElementById(\'jan\').value;' +
+        'document.cookie = \'Februar=\' + document.getElementById(\'feb\').value;' +
+        'document.cookie = \'Maerz=\' + document.getElementById(\'mar\').value;' +
+        'document.cookie = \'April=\' + document.getElementById(\'apr\').value;' +
+        'document.cookie = \'Mai=\' + document.getElementById(\'mai\').value;' +
+        'document.cookie = \'Juni=\' + document.getElementById(\'jun\').value;' +
+        'document.cookie = \'Juli=\' + document.getElementById(\'jul\').value;' +
+        'document.cookie = \'August=\' + document.getElementById(\'aug\').value;' +
+        'document.cookie = \'September=\' + document.getElementById(\'sep\').value;' +
+        'document.cookie = \'Oktober=\' + document.getElementById(\'okt\').value;' +
+        'document.cookie = \'November=\' + document.getElementById(\'nov\').value;' +
+        'document.cookie = \'Dezember=\' + document.getElementById(\'dez\').value;' +
         'window.close();' +
         '}' +
         '</script>' +
