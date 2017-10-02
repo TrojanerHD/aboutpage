@@ -2,6 +2,8 @@ var ctx = document.getElementById("line").getContext("2d");
 var type = 'line';
 var clearChart;
 var page;
+
+var land;
 var checkLand;
 var checkJan;
 var checkFeb;
@@ -15,6 +17,7 @@ var checkSep;
 var checkOkt;
 var checkNov;
 var checkDez;
+
 var dataset = [
     {
         label: 'Deutschland',
@@ -49,13 +52,14 @@ function newChart() {
     checkOkt = getCookie('Oktober');
     checkNov = getCookie('November');
     checkDez = getCookie('Dezember');
-    if (checkLand !== "") {
+    if (checkLand !== "" && checkLand !== land) {
         dataset.push({
             label: checkLand,
             data: [parseInt(checkJan), parseInt(checkFeb), parseInt(checkMar), parseInt(checkApr), parseInt(checkMai), parseInt(checkJun), parseInt(checkJul), parseInt(checkAug), parseInt(checkSep), parseInt(checkOkt), parseInt(checkNov), parseInt(checkDez)],
             borderColor: 'Black',
             backgroundColor: 'rgba(0, 0, 0, 0.4)'
         });
+        land = checkLand;
     }
     clearChart = new Chart(ctx, {
         type: type,
