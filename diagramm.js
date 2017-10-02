@@ -1,8 +1,8 @@
 var ctx = document.getElementById("line").getContext("2d");
-var land;
 var type = 'line';
 var clearChart;
 var page;
+var cookieCheck;
 var dataset = [
     {
         label: 'Deutschland',
@@ -16,15 +16,23 @@ var dataset = [
         backgroundColor: 'rgba(0, 121, 23, 0.4)'
     }, {
         label: 'Schweiz',
-        data: [3.8, 5.3, 9.4, 13.5, 17.6, 21.4, 24.1, 23, 19.6, 14, 8.4, 4.7, 13.8],
+        data: [3.8, 5.3, 9.4, 13.5, 17.6, 21.4, 24.1, 23, 19.6, 14, 8.4, 4.7],
         borderColor: 'Red',
         backgroundColor: 'rgba(160, 2, 1, 0.4)'
     }
-    ];
-
+];
 newChart();
 
 function newChart() {
+    cookieCheck = getCookie('Land');
+    if (cookieCheck !== "") {
+        dataset.push({
+            label: cookieCheck,
+            data: [2.1, 3.5, 7.4, 11.7, 11, 16, 18, 10, 19, 9, 8.5, 12],
+            borderColor: 'Black',
+            backgroundColor: 'rgba(0, 0, 0, 0.4)'
+        });
+    }
     clearChart = new Chart(ctx, {
         type: type,
         data: {
@@ -71,7 +79,16 @@ function showBarChart() {
 
 function addLand() {
     page = window.open('', 'Ein Land hinzufügen', 'width=257,height=414');
-    page.document.write('<form onsubmit="generateLand();">Land:<input type="text" id="land" placeholder="Land" required><br>' +
+    page.dataset = dataset;
+    page.document.write(
+        '<script>' +
+        'function generateLand() {' +
+        'document.cookie = \'Land=\';' +
+        'document.cookie = \'Land=\' + document.getElementById(\'land\').value;' +
+        'window.close();' +
+        '}' +
+        '</script>' +
+        '<form onsubmit="generateLand();">Land:<input type="text" id="land" placeholder="Land" required><br>' +
         '<table>' +
         '<tr>' +
         '<th>Monat</th>' +
@@ -127,17 +144,21 @@ function addLand() {
         '</tr>' +
         '</table>' +
         '<button type="submit">Generieren</button>' +
-        '</form>' +
-        '<script>' +
-        'function generateLand(){' +
-        'land = document.getElementById("land");' +
-        'dataset.push([' +
-        '    {' +
-        '        label: land,' +
-        '        data: [0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100]' +
-        '    }' +
-        ']);' +
-        'window.close();' +
-        '}' +
-        '</script>');
+        '</form>');
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) === 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
 }
