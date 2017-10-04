@@ -2,25 +2,35 @@ body {
     background-color: rgb(73, 73, 73);
     color: #ffffff;
 }
+
 h1 {
     color: orange;
 }
+
 h6 {
     color: #b3b3b3;
     display: inline;
 }
+
 span {
     color: #b3b3b3;
     display: inline;
 }
+
 canvas {
     background-color: white;
-    width:auto !important;
-    height:600px !important;
+    width: 100% !important;
+    height: auto !important;
 }
+
 table,
 td,
 th {
+    color: #b3b3b3;
+    border: 1px solid #b3b3b3;
+}
+
+div {
     color: #b3b3b3;
     border: 1px solid #b3b3b3;
 }

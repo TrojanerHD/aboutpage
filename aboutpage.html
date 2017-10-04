@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Über mich</title>
-    <script type="text/javascript" src="Chart.bundle.js"></script>
-    <link type="text/css" href="aboutpage.css" rel="stylesheet">
-    <script type="text/javascript" src="aboutpage.js"></script>
+    <script type="text/javascript" src="js/Chart.bundle.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link type="text/css" href="css/aboutpage.css" rel="stylesheet">
+    <script type="text/javascript" src="js/aboutpage.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body onload="checkFirstVisit();">
 <h1>Über mich</h1><br>
 <span>
     Da ich keine Ahnung habe, was ich schreiben soll, schreibe ich darüber, dass ich keine Ahnung habe, was ich schreiben soll. Ich finde das
@@ -20,22 +23,33 @@
     ist, kommt jetzt ein Diagramm.
 </span><br>
 <button type="button" onclick="hideChart();">Ein-/Ausklappen</button>
-<div id="hideChart" style="display: block">
-    <form>
-        <fieldset>
-            <input type="radio" id="ld" name="chartChange" value="diagrammChange" onclick="showLineChart()">
-            <label for="ld"> Liniendiagramm</label>
-            <br>
-            <input type="radio" id="bd" name="chartChange" value="diagrammChange" onclick="showBarChart()">
-            <label for="bd"> Säulendiagramm</label>
-        </fieldset>
-    </form>
-    <canvas id="line" style="border: solid"></canvas>
+
+<br><br>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <span>
+                Dieses Diagramm zeigt die Durschnittstemperatur der Länder Deutschland, Schweiz und den USA. Durch Klicken auf den
+                Knopf "Ein Land hinzufügen" wird ein Dialofenster angezeigt, in dem ein Land hinzugefügt werden kann.</span><br>
+            <form>
+                <fieldset>
+                    <input type="radio" id="ld" name="chartChange" value="diagrammChange" onclick="showLineChart()">
+                    <label for="ld"> Liniendiagramm</label>
+                    <br>
+                    <input type="radio" id="bd" name="chartChange" value="diagrammChange" onclick="showBarChart()">
+                    <label for="bd"> Säulendiagramm</label>
+                </fieldset>
+            </form>
+        </div>
+        <div class="col-md-8"><div id="hideChart" style="display: block">
+            <script type="text/javascript" src="js/widthchecker.js"></script>
+            <button onclick="addLand();">Ein Land hinzufügen</button>
+        </div></div>
+    </div>
 </div>
-<button onclick="addLand();">Ein Land hinzufügen</button>
 <br><br>
 <span>Aber nun ein paar Informationen über dich!<br></span>
-<script type="text/javascript" src="infosaboutyou.js"></script>
+<script type="text/javascript" src="js/infosaboutyou.js"></script>
 </body>
-<script type="text/javascript" src="diagramm.js"></script>
+<script type="text/javascript" src="js/diagramm.js"></script>
 </html>

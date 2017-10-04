@@ -2,6 +2,15 @@ var ctx = document.getElementById("line").getContext("2d");
 var type = 'line';
 var clearChart;
 var page;
+document.cookie = 'cookieCount=0';
+
+function checkFirstVisit() {
+    if (document.cookie.indexOf('mycookie') === -1) {
+        document.cookie = 'mycookie=1';
+    }
+    else {
+    }
+}
 
 var land;
 var checkLand;
@@ -72,14 +81,6 @@ function newChart() {
                 display: true,
                 text: 'Durchschnittstemparatur'
             },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        min: 0,
-                        max: 40
-                    }
-                }]
-            }
         }
 
     });
@@ -111,6 +112,7 @@ function addLand() {
     page.document.write(
         '<script>' +
         'function generateLand() {' +
+        'document.cookie = \'cookieCount=\';' +
         'document.cookie = \'Land=\';' +
         'document.cookie = \'Januar=\';' +
         'document.cookie = \'Februar=\';' +
