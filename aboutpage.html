@@ -10,7 +10,7 @@
     <script src="js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body onload="checkFirstVisit();">
+<body onresize="window.location.href = window.location.href;" onload="checkFirstVisit();">
 <h1>Über mich</h1><br>
 <span>
     Da ich keine Ahnung habe, was ich schreiben soll, schreibe ich darüber, dass ich keine Ahnung habe, was ich schreiben soll. Ich finde das
@@ -22,29 +22,34 @@
 <span>
     ist, kommt jetzt ein Diagramm.
 </span><br>
-<button type="button" onclick="hideChart();">Ein-/Ausklappen</button>
+<button type="button" onclick="hideChart();" class="btn btn-primary">Ein-/Ausklappen</button>
 
 <br><br>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-4">
+<div id="hideChart" style="display: block">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
             <span>
                 Dieses Diagramm zeigt die Durschnittstemperatur der Länder Deutschland, Schweiz und den USA. Durch Klicken auf den
-                Knopf "Ein Land hinzufügen" wird ein Dialofenster angezeigt, in dem ein Land hinzugefügt werden kann.</span><br>
-            <form>
-                <fieldset>
-                    <input type="radio" id="ld" name="chartChange" value="diagrammChange" onclick="showLineChart()">
-                    <label for="ld"> Liniendiagramm</label>
-                    <br>
-                    <input type="radio" id="bd" name="chartChange" value="diagrammChange" onclick="showBarChart()">
-                    <label for="bd"> Säulendiagramm</label>
-                </fieldset>
-            </form>
+                Knopf "Ein Land hinzufügen" wird ein Dialofenster angezeigt, in dem ein Land hinzugefügt werden kann. Damit das Land auch
+                angezeigt wird, muss die Seite neu geladen werden. Momentan kann nur ein Land zusätzlich zu den drei bereits bestehenden
+                hinzugefügt werden.
+            </span><br>
+                <form>
+                    <fieldset>
+                        <input type="radio" id="ld" name="chartChange" value="diagrammChange" onclick="showLineChart()">
+                        <label for="ld"> Liniendiagramm</label>
+                        <br>
+                        <input type="radio" id="bd" name="chartChange" value="diagrammChange" onclick="showBarChart()">
+                        <label for="bd"> Säulendiagramm</label>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="col-md-10">
+                <script type="text/javascript" src="js/widthchecker.js"></script>
+                <button onclick="addLand();" class="btn btn-primary">Ein Land hinzufügen</button>
+            </div>
         </div>
-        <div class="col-md-8"><div id="hideChart" style="display: block">
-            <script type="text/javascript" src="js/widthchecker.js"></script>
-            <button onclick="addLand();">Ein Land hinzufügen</button>
-        </div></div>
     </div>
 </div>
 <br><br>

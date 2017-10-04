@@ -1,6 +1,7 @@
 body {
     background-color: rgb(73, 73, 73);
     color: #ffffff;
+    font-family: "Times New Roman", serif;
 }
 
 h1 {
@@ -12,7 +13,8 @@ h6 {
     display: inline;
 }
 
-span {
+span,
+form {
     color: #b3b3b3;
     display: inline;
 }
@@ -26,6 +28,7 @@ canvas {
 table,
 td,
 th {
+    padding: 5px;
     color: #b3b3b3;
     border: 1px solid #b3b3b3;
 }
@@ -33,4 +36,12 @@ th {
 div {
     color: #b3b3b3;
     border: 1px solid #b3b3b3;
+}
+
+table {
+    text-align: center;
+}
+
+input {
+    size: 1px;
 }

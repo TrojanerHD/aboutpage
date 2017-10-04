@@ -1,4 +1,4 @@
 if (screen.width >= 480)
     document.write('<canvas id="line" style="border: solid"></canvas>');
 else
-    document.write('Dein Bildschirm ist zu schmal');
+    document.write('Der Bildschirm ist zu schmal <a href="js/ScreenTooSmallErrormessage.html">[Weitere Informationen]</a>');
