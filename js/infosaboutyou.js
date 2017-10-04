@@ -13,5 +13,5 @@ if (lang === 'de')
     lang = 'Deutsch';
 document.write('<table><tr><th>Browser</th><th>Cookies</th><th>Version</th><th>Plattform</th><th>Browsersprache</th>' +
     '<th>Java</th><th>Auflösung des Bildschirms</th></tr><tr><td>' + navigator.appCodeName + '</td><td>' + cookies + '</td><td>' +
-    navigator.userAgent + '</td><td>' + navigator.platform + '</td><td>' + lang + '</td><td>' + java + '</td><td>' + screen.width +
-    'x' + screen.height + '</td></tr></table></div>');
+    navigator.userAgent + '</td><td>' + navigator.platform + '</td><td>' + lang + '</td><td>' + java + '</td><td>' + window.innerHeight +
+    'x' + window.innerWidth + '</td></tr></table></div>');

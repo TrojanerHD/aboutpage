@@ -8,6 +8,7 @@ h1 {
     color: orange;
 }
 
+h3,
 h6 {
     color: #b3b3b3;
     display: inline;
@@ -42,6 +43,10 @@ table {
     text-align: center;
 }
 
-input {
-    size: 1px;
+input[type="checkbox"] ~ input {
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ input {
+    display: inline-block;
 }

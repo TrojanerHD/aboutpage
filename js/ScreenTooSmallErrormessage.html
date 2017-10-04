@@ -6,22 +6,34 @@
     <link type="text/css" href="../css/aboutpage.css" rel="stylesheet">
 </head>
 <body>
-<span>
 <h3>Q: Was bedeutet diese Nachricht?</h3><br>
-A: Diese Nachricht bedeutet einfach, dass der Bildschirm zu schmal ist, um das Diagramm anzeigen zu lassen. Um das Diagramm korrekt anzeigen zu
-können, muss der Bildschirm mindestens 480 Pixel breit sein.<br>
-<h3>Q: Und was kann ich dagegen tun?</h3>
+<span>
+A: Diese Nachricht bedeutet einfach, dass das Fenster zu schmal ist, um das Diagramm anzeigen zu lassen. Um das Diagramm korrekt anzeigen zu
+können, muss das Fenster mindestens 480 Pixel breit sein.<br><br>
+</span>
+<h3>Q: Und was kann ich dagegen tun?</h3><br>
+<span>
 1. Bildschirm in den Querformat stellen und die Seite neu laden <br>
-2. zu einem Gerät mit einem breiteren Bildschirm wechseln<br>
+2. zu einem Gerät mit einem breiteren Bildschirm wechseln<br><br>
+</span>
 <h3>Q: Mein Bildschirm hat aber 480 Pixel oder mehr. Was kann ich tun?</h3>
+<span>
 A: Wenn dies der Fall ist, dann sollte die Seite neu geladen werden. Wenn trotzdem die Fehlermeldung kommt, ist das ein Programmier-/Skriptfehler.
 Falls dies der Fall ist, dann fülle bitte folgendes Vormular aus, damit der Fehler behoben werden kann:<br><br>
 </span>
-<form action="mailto:jtrockels@web.de" method="post">
-    Mein Gerät:
-    <input type="text" placeholder="Mein Gerät" required><br>
-    Breite meines Bildschirms in Pixel (falls bekannt):
-    <input type="number" placeholder="480"><br>
+<form class="group" action="mailto:jtrockels@web.de" method="post">
+    Erkannte Fensterauflösung:
+    <script>
+        document.write(window.innerWidth + 'x' + window.innerHeight)
+    </script>
+    <ul style="list-style:none">
+        <li>
+            <input type="checkbox" id="oS">
+            <label for="oS"> Ich habe eine andere Fensterauflösung</label>
+            <br><br>
+            <input type="text" placeholder="1920x1080">
+        </li>
+    </ul>
     Sonstiges: <br>
     <textarea rows="3" placeholder="Sonstiges"></textarea><br>
     <input type="submit" value="Abschicken">
