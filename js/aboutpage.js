@@ -1,6 +1,15 @@
 function hideChart() {
-    if (document.getElementById('hideChart').style.display === 'block')
-        document.getElementById('hideChart').style.display = 'none';
+    if ($('#hideChart')[0].style.display === 'block')
+        $('#hideChart')[0].style.display = 'none';
     else
-        document.getElementById('hideChart').style.display = 'block'
+        $('#hideChart')[0].style.display = 'block';
+    // document.getElementById('hideChart').style.display = 'block'
 }
+
+$(document).ready(function () {
+    $('#jqueryLink').click(function (event) {
+        alert("The link will no longer take you to jquery.com");
+        event.preventDefault();
+    });
+});
+$(document.body).append();

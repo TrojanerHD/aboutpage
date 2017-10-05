@@ -80,7 +80,7 @@ function newChart() {
             title: {
                 display: true,
                 text: 'Durchschnittstemparatur'
-            },
+            }
         }
 
     });
@@ -107,38 +107,57 @@ function showBarChart() {
 }
 
 function addLand() {
+    if (page)
+        page.window.close();
     page = window.open('', 'Ein Land hinzufügen', 'width=257,height=414');
     page.dataset = dataset;
     page.document.write(
         '<script>' +
         'function generateLand() {' +
-        'document.cookie = \'cookieCount=\';' +
-        'document.cookie = \'Land=\';' +
-        'document.cookie = \'Januar=\';' +
-        'document.cookie = \'Februar=\';' +
-        'document.cookie = \'Maerz=\';' +
-        'document.cookie = \'April=\';' +
-        'document.cookie = \'Mai=\';' +
-        'document.cookie = \'Juni=\';' +
-        'document.cookie = \'Juli=\';' +
-        'document.cookie = \'August=\';' +
-        'document.cookie = \'September=\';' +
-        'document.cookie = \'Oktober=\';' +
-        'document.cookie = \'November=\';' +
-        'document.cookie = \'Dezember=\';' +
-        'document.cookie = \'Land=\' + document.getElementById(\'land\').value;' +
-        'document.cookie = \'Januar=\' + document.getElementById(\'jan\').value;' +
-        'document.cookie = \'Februar=\' + document.getElementById(\'feb\').value;' +
-        'document.cookie = \'Maerz=\' + document.getElementById(\'mar\').value;' +
-        'document.cookie = \'April=\' + document.getElementById(\'apr\').value;' +
-        'document.cookie = \'Mai=\' + document.getElementById(\'mai\').value;' +
-        'document.cookie = \'Juni=\' + document.getElementById(\'jun\').value;' +
-        'document.cookie = \'Juli=\' + document.getElementById(\'jul\').value;' +
-        'document.cookie = \'August=\' + document.getElementById(\'aug\').value;' +
-        'document.cookie = \'September=\' + document.getElementById(\'sep\').value;' +
-        'document.cookie = \'Oktober=\' + document.getElementById(\'okt\').value;' +
-        'document.cookie = \'November=\' + document.getElementById(\'nov\').value;' +
-        'document.cookie = \'Dezember=\' + document.getElementById(\'dez\').value;' +
+        'var allItems = [' +
+        '{' +
+        'name:"Land",' +
+        'element:"land"' +
+        '},{' +
+        'name:"Januar",' +
+        'element:"jan"' +
+        '}, {' +
+        'name:"Februar",' +
+        'element:"feb"' +
+        '}, {' +
+        'name:"Maerz",' +
+        'element:"mar"' +
+        '},{' +
+        'name:"April",' +
+        'element:"apr"' +
+        '},{' +
+        'name:"Mai",' +
+        'element:"mai"' +
+        '},{' +
+        'name:"Juni",' +
+        'element:"jun"' +
+        '},{' +
+        'name:"Juli",' +
+        'element:"jul"' +
+        '},{' +
+        'name:"August",' +
+        'element:"aug"' +
+        '},{' +
+        'name:"September",' +
+        'element:"sep"' +
+        '},{' +
+        'name:"Oktober",' +
+        'element:"okt"' +
+        '},{' +
+        'name:"November",' +
+        'element:"nov"' +
+        '},{' +
+        'name:"Dezember",' +
+        'element:"dez"' +
+        '}];' +
+        'for(var count = 0; count < allItems.length; count++) {' +
+        'document.cookie = allItems[count].name + "=" + document.getElementById(allItems[count].element).value' +
+        '}' +
         'window.close();' +
         '}' +
         '</script>' +
