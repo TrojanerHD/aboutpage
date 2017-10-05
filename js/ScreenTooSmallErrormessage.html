@@ -13,15 +13,15 @@ können, muss das Fenster mindestens 480 Pixel breit sein.<br><br>
 </span>
 <h3>Q: Und was kann ich dagegen tun?</h3><br>
 <span>
-1. Bildschirm in den Querformat stellen und die Seite neu laden <br>
+1. Bildschirm, wenn möglich, in den Querformat stellen und die Seite neu laden <br>
 2. zu einem Gerät mit einem breiteren Bildschirm wechseln<br><br>
 </span>
-<h3>Q: Mein Bildschirm hat aber 480 Pixel oder mehr. Was kann ich tun?</h3>
+<h3>Q: Mein Fenster/Bildschirm hat aber 480 Pixel oder mehr. Was kann ich tun?</h3><br>
 <span>
 A: Wenn dies der Fall ist, dann sollte die Seite neu geladen werden. Wenn trotzdem die Fehlermeldung kommt, ist das ein Programmier-/Skriptfehler.
-Falls dies der Fall ist, dann fülle bitte folgendes Vormular aus, damit der Fehler behoben werden kann:<br><br>
+Falls dies der Fall ist, dann fülle bitte folgendes Formular aus, damit der Fehler behoben werden kann:<br><br>
 </span>
-<form class="group" action="mailto:jtrockels@web.de" method="post">
+<form action="mailto:jtrockels@web.de" method="post" name="Formular" enctype="text/plain">
     Erkannte Fensterauflösung:
     <script>
         document.write(window.innerWidth + 'x' + window.innerHeight)
@@ -31,11 +31,13 @@ Falls dies der Fall ist, dann fülle bitte folgendes Vormular aus, damit der Feh
             <input type="checkbox" id="oS">
             <label for="oS"> Ich habe eine andere Fensterauflösung</label>
             <br><br>
-            <input type="text" placeholder="1920x1080">
+            <input type="number" placeholder="1920" required>
+            <textarea style="width: 1em; height: 1em; resize: none;" rows="1" cols="1" readonly>x</textarea>
+            <input type="number" placeholder="1080" required>
         </li>
     </ul>
     Sonstiges: <br>
-    <textarea rows="3" placeholder="Sonstiges"></textarea><br>
+    <textarea rows="3" placeholder="Sonstiges" name="Sonstiges"></textarea><br>
     <input type="submit" value="Abschicken">
 </form>
 </body>

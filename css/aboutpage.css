@@ -50,3 +50,11 @@ input[type="checkbox"] ~ input {
 input[type="checkbox"]:checked ~ input {
     display: inline-block;
 }
+
+input[type="checkbox"] ~ textarea {
+    display: none;
+}
+
+input[type="checkbox"]:checked ~ textarea {
+    display: inline-block;
+}
