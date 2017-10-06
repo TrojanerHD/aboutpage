@@ -2,6 +2,7 @@ body {
     background-color: rgb(73, 73, 73);
     color: #ffffff;
     font-family: "Times New Roman", serif;
+    font-size: 16px;
 }
 
 h1 {
@@ -32,15 +33,12 @@ th {
     padding: 5px;
     color: #b3b3b3;
     border: 1px solid #b3b3b3;
+    text-align: center;
 }
 
 div {
     color: #b3b3b3;
     border: 1px solid #b3b3b3;
-}
-
-table {
-    text-align: center;
 }
 
 input[type="checkbox"] ~ input {

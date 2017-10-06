@@ -11,5 +11,5 @@ $(document).ready(function () {
         alert("The link will no longer take you to jquery.com");
         event.preventDefault();
     });
+    $('h1').fadeIn();
 });
-$(document.body).append();

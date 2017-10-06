@@ -16,7 +16,7 @@ var land;
 var checkLand;
 var checkJan;
 var checkFeb;
-var checkMar;
+var checkMae;
 var checkApr;
 var checkMai;
 var checkJun;
@@ -48,23 +48,19 @@ var dataset = [
 newChart();
 
 function newChart() {
-    checkLand = getCookie('Land');
-    checkJan = getCookie('Januar');
-    checkFeb = getCookie('Februar');
-    checkMar = getCookie('Maerz');
-    checkApr = getCookie('April');
-    checkMai = getCookie('Mai');
-    checkJun = getCookie('Juni');
-    checkJul = getCookie('Juli');
-    checkAug = getCookie('August');
-    checkSep = getCookie('September');
-    checkOkt = getCookie('Oktober');
-    checkNov = getCookie('November');
-    checkDez = getCookie('Dezember');
+    var cookieNames = ['Land', 'Januar', 'Februar', 'Maerz', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November',
+        'Dezember'];
+    var count;
+    for (count = 0; count < cookieNames.length; count++) {
+        if (count === 0)
+            checkLand = getCookie(cookieNames[count]);
+        else
+            window['check' + cookieNames[count].substring(0, 3)] = getCookie(cookieNames[count])
+    }
     if (checkLand !== "" && checkLand !== land) {
         dataset.push({
             label: checkLand,
-            data: [parseInt(checkJan), parseInt(checkFeb), parseInt(checkMar), parseInt(checkApr), parseInt(checkMai), parseInt(checkJun), parseInt(checkJul), parseInt(checkAug), parseInt(checkSep), parseInt(checkOkt), parseInt(checkNov), parseInt(checkDez)],
+            data: [parseInt(checkJan), parseInt(checkFeb), parseInt(checkMae), parseInt(checkApr), parseInt(checkMai), parseInt(checkJun), parseInt(checkJul), parseInt(checkAug), parseInt(checkSep), parseInt(checkOkt), parseInt(checkNov), parseInt(checkDez)],
             borderColor: 'Black',
             backgroundColor: 'rgba(0, 0, 0, 0.4)'
         });
@@ -107,11 +103,15 @@ function showBarChart() {
 }
 
 function addLand() {
+    if (!navigator.cookieEnabled) {
+        alert('Für diese Funktion müssen Cookies in deinem Browser aktiviert sein.');
+        return;
+    }
     if (page)
         page.window.close();
     page = window.open('', 'Ein Land hinzufügen', 'width=257,height=414');
-    page.dataset = dataset;
     page.document.write(
+        '<link type="text/css" href="css/addData.css" rel="stylesheet">' +
         '<script>' +
         'function generateLand() {' +
         'var allItems = [' +
@@ -126,7 +126,7 @@ function addLand() {
         'element:"feb"' +
         '}, {' +
         'name:"Maerz",' +
-        'element:"mar"' +
+        'element:"mae"' +
         '},{' +
         'name:"April",' +
         'element:"apr"' +
@@ -158,10 +158,11 @@ function addLand() {
         'for(var count = 0; count < allItems.length; count++) {' +
         'document.cookie = allItems[count].name + "=" + document.getElementById(allItems[count].element).value' +
         '}' +
+        'alert("Damit die Änderungen wirksam werden, muss das Fenster neu geladen werden (Strg + R).");' +
         'window.close();' +
         '}' +
         '</script>' +
-        '<form onsubmit="generateLand();">Land:<input type="text" id="land" placeholder="Land" required><br>' +
+        '<form onsubmit="generateLand();">Land:<input type="text" id="land" placeholder="Land" required><br><br>' +
         '<table>' +
         '<tr>' +
         '<th>Monat</th>' +
@@ -169,56 +170,60 @@ function addLand() {
         '</tr>' +
         '<tr>' +
         '<th>Januar</th>' +
-        '<td><input type="number" value="0" id="jan"></td>' +
+        '<td><input type="number" value="0" id="jan" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>Februar</th>' +
-        '<td><input type="number" value="0" id="feb"></td>' +
+        '<td><input type="number" value="0" id="feb" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>März</th>' +
-        '<td><input type="number" value="0" id="mar"></td>' +
+        '<td><input type="number" value="0" id="mae" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>April</th>' +
-        '<td><input type="number" value="0" id="apr"></td>' +
+        '<td><input type="number" value="0" id="apr" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>Mai</th>' +
-        '<td><input type="number" value="0" id="mai"></td>' +
+        '<td><input type="number" value="0" id="mai" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>Juni</th>' +
-        '<td><input type="number" value="0" id="jun"></td>' +
+        '<td><input type="number" value="0" id="jun" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>Juli</th>' +
-        '<td><input type="number" value="0" id="jul"><br></td>' +
+        '<td><input type="number" value="0" id="jul" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>August</th>' +
-        '<td><input type="number" value="0" id="aug"></td>' +
+        '<td><input type="number" value="0" id="aug" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>September</th>' +
-        '<td><input type="number" value="0" id="sep"></td>' +
+        '<td><input type="number" value="0" id="sep" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>Oktober</th>' +
-        '<td><input type="number" value="0" id="okt"></td>' +
+        '<td><input type="number" value="0" id="okt" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>November</th>' +
-        '<td><input type="number" value="0" id="nov"></td>' +
+        '<td><input type="number" value="0" id="nov" step="0.01"></td>' +
         '</tr>' +
         '<tr>' +
         '<th>Dezember</th>' +
-        '<td><input type="number" value="0" id="dez"></td>' +
+        '<td><input type="number" value="0" id="dez" step="0.01"></td>' +
         '</tr>' +
         '</table>' +
         '<button type="submit">Generieren</button>' +
         '</form>');
 }
+
+$(document).focus(function () {
+    page.window.close();
+});
 
 function getCookie(cname) {
     var name = cname + "=";
